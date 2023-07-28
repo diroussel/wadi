@@ -18,7 +18,7 @@
     "lint:js": "eslint --cache .",
     "lint:fmt": "prettier --check .",
     "fix": "yarn prettier -w . && yarn eslint --quiet --fix .",
-    "package": "tsup src/gully.ts"
+    "package": "./scripts/package.sh"
   },
   "dependencies": {
     "@aws-sdk/client-ssm": "3.379.1",
