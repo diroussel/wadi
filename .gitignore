@@ -1,0 +1,14 @@
+
+.idea/
+.vscode
+
+node_modules/
+
+*.zip
+.env
+.env.*
+
+# don't track ephemeral local build files
+dist*/
+.turbo/
+target/

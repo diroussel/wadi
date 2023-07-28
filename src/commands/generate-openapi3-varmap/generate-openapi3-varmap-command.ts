@@ -1,0 +1,30 @@
+/* eslint-disable @typescript-eslint/ban-types,no-console */
+import { generateTargetEnvHandler } from './generate-openapi3-varmap-handler';
+import type { GullyCommandDef } from '../../types/gully-types';
+
+export interface GenerateOpenapi3VarMapCliArgs {
+  targetEnvJsonPath: string;
+  jsonOutput?: string;
+}
+
+export const generateOpenapi3VarmapCommand: GullyCommandDef<
+  {},
+  GenerateOpenapi3VarMapCliArgs
+> = {
+  command: 'generate-openapi3-varmap',
+  describe:
+    'Generate terraform variables file for inputs to the lambda-openapi3 module',
+  builder: {
+    targetEnvJsonPath: {
+      type: 'string',
+      description: 'path to target-env.json',
+      default: 'target-env.json',
+    },
+    jsonOutput: {
+      type: 'string',
+      description:
+        'path to output file, like something.tfvars.json.  If not set the output is written to stdout in tfvars format',
+    },
+  },
+  handler: generateTargetEnvHandler,
+};
