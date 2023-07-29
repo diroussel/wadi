@@ -1,9 +1,9 @@
-import glob from 'glob-promise';
+import { glob } from 'glob';
 import { getComponents } from '../../util/getComponents';
 import { readJsonFile } from '../../util/parseJson';
 
 jest.mock('../../util/parseJson');
-jest.mock('glob-promise');
+jest.mock('glob');
 const readJsonFileMock = jest.mocked(readJsonFile);
 const globMock = jest.mocked(glob);
 

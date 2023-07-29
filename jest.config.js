@@ -11,8 +11,8 @@ module.exports = {
   transform: { '\\.(t|j)sx?$': '@swc/jest' },
   collectCoverageFrom: [
     'src/**/*.ts',
-    '!src/gully-cli.ts',
-    '!src/gully.ts',
+    '!src/wadi-cli.ts',
+    '!src/wadi.ts',
     '!src/s3Client.ts',
     '!src/commands/**/*',
   ],

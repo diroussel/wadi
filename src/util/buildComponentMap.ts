@@ -1,4 +1,4 @@
-import glob from 'glob-promise';
+import { glob } from 'glob';
 import type { ComponentMap } from '../types/gully-types';
 import { getComponents } from './getComponents';
 

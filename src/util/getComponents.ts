@@ -1,4 +1,4 @@
-import glob from 'glob-promise';
+import { glob } from 'glob';
 import path from 'path';
 import type { PkgJson, ComponentList } from '../types/gully-types';
 import { readJsonFile } from './parseJson';

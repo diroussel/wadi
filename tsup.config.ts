@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   clean: true,
-  entry: ['src/gully.ts'],
+  entry: ['src/wadi.ts'],
   metafile: true,
   noExternal: [ /.*/ ],
   outDir: 'target/bundle',

@@ -1,8 +1,8 @@
-import glob from 'glob-promise';
+import { glob } from 'glob';
 import { getComponents } from '../../util/getComponents';
 import { buildComponentMap } from '../../util/buildComponentMap';
 
-jest.mock('glob-promise');
+jest.mock('glob');
 jest.mock('../../util/getComponents');
 const globMock = jest.mocked(glob);
 
