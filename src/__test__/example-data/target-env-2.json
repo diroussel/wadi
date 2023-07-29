@@ -3,23 +3,23 @@
   "s3_assets_bucket": "poph-228692257010-eu-west-2-mgmt-acct-cicd-artifacts",
   "s3_assets_path_root": "app1-artifacts/",
   "components": {
-    "backchannellogoutlambda": {
+    "app1lambda": {
       "default_publish": true,
       "build_type": "apigateway",
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.backchannellogoutlambda-",
+      "zip_prefix": "DistPrefix.app1lambda-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/backchannellogoutlambda/develop_2.18.0.12602/buildartifact/DistPrefix.backchannellogoutlambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.backchannellogoutlambda-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/app1lambda/develop_2.18.0.12602/buildartifact/DistPrefix.app1lambda-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app1lambda-2.18.0.12602.zip"
     },
-    "bsamocklambda": {
+    "app2lambda": {
       "default_publish": true,
       "build_type": "lambda",
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.bsamocklambda-",
+      "zip_prefix": "DistPrefix.app2lambda-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/bsamocklambda/develop_2.18.0.12602/buildartifact/DistPrefix.bsamocklambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.bsamocklambda-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/app2lambda/develop_2.18.0.12602/buildartifact/DistPrefix.app2lambda-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app2lambda-2.18.0.12602.zip"
     },
     "notifylambda": {
       "default_publish": true,
@@ -29,24 +29,6 @@
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/notifylambda/develop_2.18.0.12602/buildartifact/DistPrefix.notifylambda-2.18.0.12602.zip",
       "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.notifylambda-2.18.0.12602.zip"
-    },
-    "candidateseventexportlambda": {
-      "default_publish": true,
-      "build_type": "lambda",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.candidateseventexportlambda-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/candidateseventexportlambda/develop_2.18.0.12602/buildartifact/DistPrefix.candidateseventexportlambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.candidateseventexportlambda-2.18.0.12602.zip"
-    },
-    "candidateseventstreamlambda": {
-      "default_publish": true,
-      "build_type": "lambda",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.candidateseventstreamlambda-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/candidateseventstreamlambda/develop_2.18.0.12602/buildartifact/DistPrefix.candidateseventstreamlambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.candidateseventstreamlambda-2.18.0.12602.zip"
     },
     "cflambda": {
       "default_publish": true,
@@ -74,104 +56,32 @@
       "build_artifact_path": "app1-artifacts/pipelinelocking/develop_2.18.0.12602/buildartifact/DistPrefix.pipelinelocking-2.18.0.12602.zip",
       "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.pipelinelocking-2.18.0.12602.zip"
     },
-    "mockidplambda": {
+    "frontend2lambda": {
       "default_publish": true,
       "build_type": "apigateway",
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.mockidplambda-",
+      "zip_prefix": "DistPrefix.frontend2lambda-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/mockidplambda/develop_2.18.0.12602/buildartifact/DistPrefix.mockidplambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.mockidplambda-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/frontend2lambda/develop_2.18.0.12602/buildartifact/DistPrefix.frontend2lambda-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.frontend2lambda-2.18.0.12602.zip"
     },
-    "igflambda": {
+    "frontend5lambda": {
       "default_publish": true,
       "build_type": "apigateway",
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.igflambda-",
+      "zip_prefix": "DistPrefix.frontend5lambda-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/igflambda/develop_2.18.0.12602/buildartifact/DistPrefix.igflambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.igflambda-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/frontend5lambda/develop_2.18.0.12602/buildartifact/DistPrefix.frontend5lambda-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.frontend5lambda-2.18.0.12602.zip"
     },
-    "pophcanary": {
+    "app1canary": {
       "default_publish": true,
       "build_type": "lambda",
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.pophcanary-",
+      "zip_prefix": "DistPrefix.app1canary-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/pophcanary/develop_2.18.0.12602/buildartifact/DistPrefix.pophcanary-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.pophcanary-2.18.0.12602.zip"
-    },
-    "meshsendlambda": {
-      "default_publish": true,
-      "build_type": "lambda",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.meshsendlambda-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/meshsendlambda/develop_2.18.0.12602/buildartifact/DistPrefix.meshsendlambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.meshsendlambda-2.18.0.12602.zip"
-    },
-    "tableauexportlambda": {
-      "default_publish": true,
-      "build_type": "lambda",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.tableauexportlambda-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/tableauexportlambda/develop_2.18.0.12602/buildartifact/DistPrefix.tableauexportlambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.tableauexportlambda-2.18.0.12602.zip"
-    },
-    "landingpagelambda": {
-      "default_publish": true,
-      "build_type": "apigateway",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.landingpagelambda-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/landingpagelambda/develop_2.18.0.12602/buildartifact/DistPrefix.landingpagelambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.landingpagelambda-2.18.0.12602.zip"
-    },
-    "viewerapplambda": {
-      "default_publish": true,
-      "build_type": "apigateway",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.viewerapplambda-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/viewerapplambda/develop_2.18.0.12602/buildartifact/DistPrefix.viewerapplambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.viewerapplambda-2.18.0.12602.zip"
-    },
-    "candidatesdataapi": {
-      "default_publish": true,
-      "build_type": "apigateway",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.candidatesdataapi-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/candidatesdataapi/develop_2.18.0.12602/buildartifact/DistPrefix.candidatesdataapi-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.candidatesdataapi-2.18.0.12602.zip"
-    },
-    "keygenlambda": {
-      "default_publish": true,
-      "build_type": "lambda",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.keygenlambda-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/keygenlambda/develop_2.18.0.12602/buildartifact/DistPrefix.keygenlambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.keygenlambda-2.18.0.12602.zip"
-    },
-    "dynamodb2sqs": {
-      "default_publish": true,
-      "build_type": "lambda",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.dynamodb2sqs-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/dynamodb2sqs/develop_2.18.0.12602/buildartifact/DistPrefix.dynamodb2sqs-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.dynamodb2sqs-2.18.0.12602.zip"
-    },
-    "notifycallbacklambda": {
-      "default_publish": true,
-      "build_type": "apigateway",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.notifycallbacklambda-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/notifycallbacklambda/develop_2.18.0.12602/buildartifact/DistPrefix.notifycallbacklambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.notifycallbacklambda-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/app1canary/develop_2.18.0.12602/buildartifact/DistPrefix.app1canary-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app1canary-2.18.0.12602.zip"
     },
     "terraform": {
       "default_publish": true,
@@ -181,14 +91,14 @@
       "build_artifact_path": "app1-artifacts/terraform/develop_2.18.0.12602/buildartifact/DistPrefix.terraform-2.18.0.12602.zip",
       "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.terraform-2.18.0.12602.zip"
     },
-    "viewerappstatic": {
+    "frontent2static": {
       "default_publish": true,
       "build_type": "static_asset",
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.viewerappstatic-",
+      "zip_prefix": "DistPrefix.frontent2static-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/viewerappstatic/develop_2.18.0.12602/buildartifact/DistPrefix.viewerappstatic-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.viewerappstatic-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/frontent2static/develop_2.18.0.12602/buildartifact/DistPrefix.frontent2static-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.frontent2static-2.18.0.12602.zip"
     },
     "landingpagestatic": {
       "default_publish": true,
@@ -199,31 +109,13 @@
       "build_artifact_path": "app1-artifacts/landingpagestatic/develop_2.18.0.12602/buildartifact/DistPrefix.landingpagestatic-2.18.0.12602.zip",
       "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.landingpagestatic-2.18.0.12602.zip"
     },
-    "mockidpstatic": {
-      "default_publish": true,
-      "build_type": "static_asset",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.mockidpstatic-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/mockidpstatic/develop_2.18.0.12602/buildartifact/DistPrefix.mockidpstatic-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.mockidpstatic-2.18.0.12602.zip"
-    },
-    "igfstatic": {
-      "default_publish": true,
-      "build_type": "static_asset",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.igfstatic-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/igfstatic/develop_2.18.0.12602/buildartifact/DistPrefix.igfstatic-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.igfstatic-2.18.0.12602.zip"
-    },
-    "candidateseventexporttest": {
+    "app1exporttest": {
       "default_publish": true,
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.candidateseventexporttest-",
+      "zip_prefix": "DistPrefix.app1exporttest-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/candidateseventexporttest/develop_2.18.0.12602/buildartifact/DistPrefix.candidateseventexporttest-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.candidateseventexporttest-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/app1exporttest/develop_2.18.0.12602/buildartifact/DistPrefix.app1exporttest-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app1exporttest-2.18.0.12602.zip"
     },
     "candidateseventperfexporttest": {
       "default_publish": true,
@@ -233,46 +125,29 @@
       "build_artifact_path": "app1-artifacts/candidateseventperfexporttest/develop_2.18.0.12602/buildartifact/DistPrefix.candidateseventperfexporttest-2.18.0.12602.zip",
       "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.candidateseventperfexporttest-2.18.0.12602.zip"
     },
-    "perftestviewerapp": {
+    "perftestapp1": {
       "default_publish": true,
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.perftestviewerapp-",
+      "zip_prefix": "DistPrefix.perftestapp1-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/perftestviewerapp/develop_2.18.0.12602/buildartifact/DistPrefix.perftestviewerapp-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.perftestviewerapp-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/perftestapp1/develop_2.18.0.12602/buildartifact/DistPrefix.perftestapp1-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.perftestapp1-2.18.0.12602.zip"
     },
-    "viewerappe2e": {
+    "app1e2e": {
       "default_publish": true,
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.viewerappe2e-",
+      "zip_prefix": "DistPrefix.app1e2e-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/viewerappe2e/develop_2.18.0.12602/buildartifact/DistPrefix.viewerappe2e-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.viewerappe2e-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/app1e2e/develop_2.18.0.12602/buildartifact/DistPrefix.app1e2e-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app1e2e-2.18.0.12602.zip"
     },
-    "avwdpostdeploy": {
+    "frontend5postdeploy": {
       "default_publish": true,
       "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.avwdpostdeploy-",
+      "zip_prefix": "DistPrefix.frontend5postdeploy-",
       "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/avwdpostdeploy/develop_2.18.0.12602/buildartifact/DistPrefix.avwdpostdeploy-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.avwdpostdeploy-2.18.0.12602.zip"
-    },
-    "igfperftest": {
-      "default_publish": true,
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.igfperftest-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/igfperftest/develop_2.18.0.12602/buildartifact/DistPrefix.igfperftest-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.igfperftest-2.18.0.12602.zip"
-    },
-    "alarmstometricslambda": {
-      "default_publish": true,
-      "build_type": "lambda",
-      "version": "2.18.0.12602",
-      "zip_prefix": "DistPrefix.alarmstometricslambda-",
-      "zip_branch": "develop",
-      "build_artifact_path": "app1-artifacts/alarmstometricslambda/develop_2.18.0.12602/buildartifact/DistPrefix.alarmstometricslambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.alarmstometricslambda-2.18.0.12602.zip"
+      "build_artifact_path": "app1-artifacts/frontend5postdeploy/develop_2.18.0.12602/buildartifact/DistPrefix.frontend5postdeploy-2.18.0.12602.zip",
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.frontend5postdeploy-2.18.0.12602.zip"
     }
   },
   "release-version": "2.18.0.7857",

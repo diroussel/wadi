@@ -19,14 +19,11 @@ export function buildTargetEnv(params: TargetEnvParams): TargetEnvFile {
       type = 'static_asset';
     } else if (
       [
-        'backchannellogoutlambda',
-        'mockidplambda',
-        'igflambda',
+        'app1lambda',
+        'frontend2lambda',
+        'frontend5lambda',
         'landingpagelambda',
-        'bsamocklambda',
-        'viewerapplambda',
-        'candidatesdataapi',
-        'notifycallbacklambda',
+        'app2lambda',
       ].includes(component)
     ) {
       type = 'apigateway';
