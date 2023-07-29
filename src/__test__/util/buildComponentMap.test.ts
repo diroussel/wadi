@@ -22,13 +22,13 @@ describe('buildComponentMap', () => {
       expect(glob).toBeCalledTimes(3);
 
       expect(glob).toBeCalledWith(
-        'this/path/target/dist/NHSD.PopulationHealth.lambda-*.zip'
+        'this/path/target/dist/DistPrefix.lambda-*.zip'
       );
       expect(glob).toBeCalledWith(
-        'that/path/target/dist/NHSD.PopulationHealth.package-*.zip'
+        'that/path/target/dist/DistPrefix.package-*.zip'
       );
       expect(glob).toBeCalledWith(
-        'and/third/one/target/dist/NHSD.PopulationHealth.tool-*.zip'
+        'and/third/one/target/dist/DistPrefix.tool-*.zip'
       );
     });
 

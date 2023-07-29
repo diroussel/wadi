@@ -9,6 +9,7 @@ export function buildTargetEnv(params: TargetEnvParams): TargetEnvFile {
     branch,
     s3AssetsBucket,
     s3AssetsPathRoot,
+    distPrefix
   } = params;
 
   // Find the build_type, in the future this should some from the component artifact-metadata.json
@@ -59,7 +60,7 @@ export function buildTargetEnv(params: TargetEnvParams): TargetEnvFile {
           ...attributes(component),
           ...componentData,
           version: componentVersion,
-          zip_prefix: `NHSD.PopulationHealth.${component}-`,
+          zip_prefix: `${distPrefix}${component}-`,
           zip_branch: branch,
         },
       ])

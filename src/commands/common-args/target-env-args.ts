@@ -19,12 +19,13 @@ export interface TargetEnvArgs {
   branch: string;
   s3AssetsBucket: string;
   s3AssetsPathRoot: string;
+  distPrefix: string;
   addLocalZipPath: boolean;
 }
 
-function addGroup<T extends string>(group: string, args: Record<T, Options>) {
+function addGroup(group: string, args: Record<string, Options>) {
   for (const option of Object.values(args)) {
-    (option as Options).group = group;
+    option.group = group;
   }
   return args;
 }
@@ -53,17 +54,20 @@ export const targetEnvArgs: Record<keyof TargetEnvArgs, Options> = addGroup(
     branch: { type: 'string', description: 'The current git branch' },
     s3AssetsBucket: {
       type: 'string',
-      description: '',
+      description: 'The S3 bucket the component artifacts are stored in',
       alias: 'bucket',
-      default:
-        process.env.S3_ARTIFACTS_BUCKET_NAME ||
-        'poph-228692257010-eu-west-2-mgmt-acct-cicd-artifacts',
+      default: process.env.S3_ARTIFACTS_BUCKET_NAME,
     },
     s3AssetsPathRoot: {
       type: 'string',
       description: 'S3 bucket to upload to, when uploading zips',
       alias: 's3path',
-      default: process.env.S3_ARTIFACTS_PATH_ROOT || 'poph-artifacts/',
+      default: process.env.S3_ARTIFACTS_PATH_ROOT,
+    },
+    distPrefix: {
+      type: 'string',
+      description: 'Prefix added to the front of the zip file name. e.g. "Org.App1."',
+      default: '',
     },
     buildNum: {
       type: 'string',
@@ -86,6 +90,7 @@ export type TargetEnvParams = {
   branch: string;
   s3AssetsBucket: string;
   s3AssetsPathRoot: string;
+  distPrefix: string;
 };
 
 export async function processTargetEnvCliArgs({
@@ -97,6 +102,7 @@ export async function processTargetEnvCliArgs({
   branch,
   s3AssetsBucket,
   s3AssetsPathRoot,
+  distPrefix,
   addLocalZipPath,
 }: TargetEnvArgs): Promise<TargetEnvParams> {
   if (!projRootDir) {
@@ -147,5 +153,6 @@ export async function processTargetEnvCliArgs({
     branch,
     s3AssetsBucket,
     s3AssetsPathRoot,
+    distPrefix
   };
 }

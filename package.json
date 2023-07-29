@@ -1,5 +1,5 @@
 {
-  "name": "@population-health/gully",
+  "name": "gully",
   "componentNames": [
     "gully"
   ],
@@ -12,6 +12,7 @@
     "gully": "dist/gully.js"
   },
   "scripts": {
+    "clean": "rm -rf target dist",
     "test:unit": "jest",
     "cover:unit": "yarn run test:unit --coverage",
     "lint": "yarn lint:js && yarn lint:fmt",

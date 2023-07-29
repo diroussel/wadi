@@ -13,7 +13,7 @@ export async function buildComponentMap(
       componentList.map(async ({ componentName, packagePath }) => {
         if (addLocalZipPath) {
           const localPath = await glob(
-            `${packagePath}/target/dist/NHSD.PopulationHealth.${componentName}-*.zip`
+            `${packagePath}/target/dist/DistPrefix.${componentName}-*.zip`
           );
           if (localPath.length !== 1) {
             throw new Error(`Local zip not found, packagePath: ${packagePath}`);
