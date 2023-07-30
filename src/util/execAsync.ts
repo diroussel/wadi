@@ -1,37 +1,43 @@
-/* eslint-disable no-param-reassign,no-console */
-import { exec, type ExecOptions } from 'child_process';
+import process from 'node:process';
+import {exec, type ExecOptions} from 'node:child_process';
 
 export type AsyncExecOptions = {
-  log?: boolean;
+	log?: boolean;
 };
 
-// async wrapper around child_process.exec()
+// Async wrapper around child_process.exec()
 export async function execAsync(
-  command: string,
-  options: AsyncExecOptions & ExecOptions = {}
-): Promise<{ stdout: string; stderr: string }> {
-  const log = options?.log || process.env.DEBUG_EXEC === 'true';
-  if (log) console.error(command);
-  return new Promise((done, failed) => {
-    exec(command, { ...options }, (err, stdout, stderr) => {
-      if (log) {
-        console.error(`Output from ${command} was:\n${stdout}`);
-      }
-      if (err) {
-        failed(err);
-        return;
-      }
-      done({ stdout, stderr });
-    });
-  });
+	command: string,
+	options: AsyncExecOptions & ExecOptions = {},
+): Promise<{stdout: string; stderr: string}> {
+	const log = options?.log ?? process.env.DEBUG_EXEC === 'true';
+	if (log) {
+		console.error(command);
+	}
+
+	return new Promise((done, failed) => {
+		exec(command, {...options}, (error, stdout, stderr) => {
+			if (log) {
+				console.error(`Output from ${command} was:\n${stdout}`);
+			}
+
+			if (error) {
+				failed(error);
+				return;
+			}
+
+			done({stdout, stderr});
+		});
+	});
 }
 
 /**
  * Read a string from the stdout of another process
  */
 export async function execStr(
-  command: string,
-  options: AsyncExecOptions & ExecOptions = {}
+	command: string,
+	options: AsyncExecOptions & ExecOptions = {},
 ): Promise<string> {
-  return (await execAsync(command, options)).stdout.trim();
+	const proc = await execAsync(command, options);
+	return proc.stdout.trim();
 }

@@ -1,29 +1,27 @@
-/* eslint-disable no-console */
-import type {Readable} from 'stream';
-import { PutObjectCommand, PutObjectCommandOutput } from '@aws-sdk/client-s3';
-import { getS3Client } from './s3Client';
-import type { Upload, S3Location } from "./types";
+
+import type {Readable} from 'node:stream';
+import {PutObjectCommand, type PutObjectCommandOutput} from '@aws-sdk/client-s3';
+import {getS3Client} from './s3Client';
+import type {Upload, S3Location} from './types';
 
 export async function putDataS3(
-  fileData: Record<string, unknown>,
-  {Bucket, Key}: S3Location
+	fileData: Record<string, unknown>,
+	{Bucket, Key}: S3Location,
 ): Promise<PutObjectCommandOutput> {
-  try {
-    const params = {
-      Bucket,
-      Key,
-      Body: JSON.stringify(fileData, null, 2),
-    };
+	try {
+		const parameters = {
+			Bucket,
+			Key,
+			Body: JSON.stringify(fileData, null, 2),
+		};
 
-    const data = getS3Client().send(new PutObjectCommand(params));
-    console.log(`Data uploaded to ${Bucket}/${Key}`);
-    return data;
-  } catch (err) {
-    throw new Error(`Upload to ${Bucket}/${Key} failed, error: ${err}`);
-  }
+		const data = getS3Client().send(new PutObjectCommand(parameters));
+		console.log(`Data uploaded to ${Bucket}/${Key}`);
+		return await data;
+	} catch (error) {
+		throw new Error(`Upload to ${Bucket}/${Key} failed, error: ${error}`);
+	}
 }
-
-
 
 /**
  * Upload a stream, string or blob to as an S3 object.
@@ -41,26 +39,26 @@ export async function putDataS3(
  *     });
  */
 export async function uploadObjectToS3(
-  params: Upload,
-  log: {
-    info: (msg: string | object) => void;
-    error: (msg: string | object) => void;
-  }
+	parameters: Upload,
+	log: {
+		info: (message: string | Record<string, unknown>) => void;
+		error: (message: string | Record<string, unknown>) => void;
+	},
 ): Promise<PutObjectCommandOutput> {
-  try {
-    log.info(`Starting upload to s3://${params.Bucket}/${params.Key}`);
-    return await getS3Client().send(new PutObjectCommand(params));
-  } catch (error) {
-    if (error instanceof Error) {
-      const newMessage = `Upload to ${params.Bucket}/${params.Key} failed, error: ${error.message}`;
-      log.error({
-        description: newMessage,
-        message: error.message,
-        stack: error.stack,
-      });
-      throw new Error(newMessage);
-    } else {
-      throw error;
-    }
-  }
+	try {
+		log.info(`Starting upload to s3://${parameters.Bucket}/${parameters.Key}`);
+		return await getS3Client().send(new PutObjectCommand(parameters));
+	} catch (error) {
+		if (error instanceof Error) {
+			const newMessage = `Upload to ${parameters.Bucket}/${parameters.Key} failed, error: ${error.message}`;
+			log.error({
+				description: newMessage,
+				message: error.message,
+				stack: error.stack,
+			});
+			throw new Error(newMessage);
+		} else {
+			throw error;
+		}
+	}
 }

@@ -1,5 +1,5 @@
-import { execStr } from './execAsync';
+import {execStr} from './execAsync';
 
 export async function findGitRepoRoot() {
-  return await execStr('git rev-parse --show-toplevel');
+	return execStr('git rev-parse --show-toplevel');
 }

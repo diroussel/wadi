@@ -1,31 +1,31 @@
-/* eslint-disable @typescript-eslint/ban-types,no-console */
-import { generateTargetEnvHandler } from './generate-target-env-handler';
-import type { GullyCommandDef } from '../../types/gully-types';
-import { TargetEnvArgs, targetEnvArgs } from '../common-args/target-env-args';
+/* eslint-disable @typescript-eslint/ban-types */
+import type {GullyCommandDef} from '../../types/gully-types';
+import {type TargetEnvArgs, targetEnvArgs} from '../common-args/target-env-args';
+import {generateTargetEnvHandler} from './generate-target-env-handler';
 
-export interface GenerateTargetEnvCliArgs extends TargetEnvArgs {
-  upload: boolean;
-  jsonOutput: string;
-}
+export type GenerateTargetEnvCliArgs = {
+	upload: boolean;
+	jsonOutput: string;
+} & TargetEnvArgs;
 
 export const generateTargetEnvCmd: GullyCommandDef<
-  {},
-  GenerateTargetEnvCliArgs
+{},
+GenerateTargetEnvCliArgs
 > = {
-  command: 'generate-target-env',
-  describe: 'Generate the target-env.json file',
-  builder: {
-    ...targetEnvArgs,
-    upload: {
-      type: 'boolean',
-      description:
+	command: 'generate-target-env',
+	describe: 'Generate the target-env.json file',
+	builder: {
+		...targetEnvArgs,
+		upload: {
+			type: 'boolean',
+			description:
         'Flag to indicate if component zips should be uploaded to s3',
-    },
-    jsonOutput: {
-      type: 'string',
-      description:
+		},
+		jsonOutput: {
+			type: 'string',
+			description:
         'path to output file, like ./target-env.json.  If not set the output is written to stdout in json format',
-    },
-  },
-  handler: generateTargetEnvHandler,
+		},
+	},
+	handler: generateTargetEnvHandler,
 };

@@ -1,8 +1,8 @@
-import { writeFile } from 'fs/promises';
+import {writeFile} from 'node:fs/promises';
 
 export async function writeOutputFile(
-  jsonOutput: string,
-  varMap: Record<string, unknown>
+	jsonOutput: string,
+	varMap: Record<string, unknown>,
 ) {
-  await writeFile(jsonOutput, JSON.stringify(varMap, null, 2));
+	await writeFile(jsonOutput, JSON.stringify(varMap, null, 2));
 }

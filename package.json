@@ -47,7 +47,30 @@
     "@swc/jest": "^0.2.27",
     "jest": "^29.6.2",
     "typescript": "^5.1.6",
-    "tsup": "^7.1.0"
+    "tsup": "^7.1.0",
+    "xo": "^0.55.0"
+  },
+  "xo": {
+    "envs": [
+      "node"
+    ],
+    "rules": {
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/naming-convention": "off",
+      "@typescript-eslint/no-floating-promises": "off",
+      "@typescript-eslint/no-loop-func": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "import/extensions": "off",
+      "import/no-anonymous-default-export": "off",
+      "import/no-cycle": "off",
+      "n/file-extension-in-import": "off",
+      "unicorn/prefer-module": "off",
+      "unicorn/prevent-abbreviations": "off"
+    }
   },
   "packageManager": "pnpm@8.6.10"
 }

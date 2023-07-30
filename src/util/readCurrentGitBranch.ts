@@ -1,5 +1,5 @@
-import { execStr } from './execAsync';
+import {execStr} from './execAsync';
 
 export async function readCurrentGitBranch() {
-  return await execStr('git rev-parse --abbrev-ref HEAD');
+	return execStr('git rev-parse --abbrev-ref HEAD');
 }
