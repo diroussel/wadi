@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getComponents readJsonFile will be called with each path returned by glob 1`] = `
+[
+  {
+    "componentName": "frontendlambda",
+    "packagePath": "first/path",
+  },
+  {
+    "componentName": "frontendstatic",
+    "packagePath": "first/path",
+  },
+  {
+    "componentName": "app1lambda",
+    "packagePath": "and/second/path",
+  },
+]
+`;

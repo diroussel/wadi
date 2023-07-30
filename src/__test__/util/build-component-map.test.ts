@@ -44,7 +44,7 @@ describe('buildComponentMap', () => {
 
 			await expect(
 				async () => buildComponentMap(true, 'rootDirPath'),
-			).rejects.toThrowError('Local zip not found, packagePath: this/path');
+			).rejects.toThrowError('Too many zips found, packagePath: this/path');
 		});
 
 		it('ComponentMap includes localZipFile', async () => {

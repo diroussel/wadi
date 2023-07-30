@@ -1,7 +1,16 @@
 import path from 'node:path';
 import {glob} from 'glob';
-import type {PkgJson, ComponentList} from '../types/wadi-types';
+import pMap from 'p-map';
+import type {PkgJson, ComponentList, ComponentLocation} from '../types/wadi-types';
 import {readJsonFile} from './parse-json';
+
+async function listComponentsInPackage(packageJsonPath: string): Promise<ComponentList> {
+	const fileData = await readJsonFile<PkgJson>(packageJsonPath);
+	const packagePath = path.dirname(packageJsonPath);
+
+	const names = fileData.componentNames ?? (fileData.componentName ? [fileData.componentName] : []);
+	return names.map(componentName => ({componentName, packagePath}));
+}
 
 export async function getComponents(
 	projRootDir: string,
@@ -18,19 +27,6 @@ export async function getComponents(
 		ignore: '**/node_modules/**',
 	});
 
-	const pkgJsons = await Promise.all(
-		paths.map(async packagePath => ({
-			path: packagePath,
-			data: await readJsonFile<PkgJson>(packagePath),
-		})),
-	);
-
-	return pkgJsons.flatMap(pkgJson => {
-		const packagePath = path.dirname(pkgJson.path);
-
-		return (pkgJson.data?.componentNames ?? []).map(componentName => ({
-			componentName,
-			packagePath,
-		}));
-	});
+	const list = await pMap(paths, listComponentsInPackage, {concurrency: 3});
+	return list.flat();
 }

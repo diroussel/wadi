@@ -1,6 +1,7 @@
 import {glob} from 'glob';
 import {getComponents} from '../../util/get-components';
 import {readJsonFile} from '../../util/parse-json';
+import type {PkgJson} from '../../types/wadi-types';
 
 jest.mock('../../util/parse-json');
 jest.mock('glob');
@@ -30,15 +31,35 @@ describe('getComponents', () => {
 	});
 
 	it('readJsonFile will be called with each path returned by glob', async () => {
-		readJsonFileMock.mockResolvedValueOnce({
-			workspaces: ['workspaceDir1'],
+		readJsonFileMock.mockImplementation(async (path): Promise<PkgJson> => {
+			switch (path) {
+				case 'rootDir/package.json': {return {
+					version: '1.0.0',
+					workspaces: ['workspaceDir1'],
+				};}
+
+				case 'first/path/package.json': {return {
+					version: '1.0.0',
+					componentNames: ['frontendlambda', 'frontendstatic'],
+				};}
+
+				case 'and/second/path/package.json': {return {
+					version: '1.0.0',
+					componentName: 'app1lambda',
+				};}
+
+				default: {
+					throw new Error(`Wasn't expecting path ${path}`);
+				}
+			}
 		});
 		globMock.mockResolvedValueOnce([
 			'first/path/package.json',
 			'and/second/path/package.json',
 		]);
 
-		await getComponents('rootDir');
+		const components = await getComponents('rootDir');
+		expect(components).toMatchSnapshot();
 
 		expect(readJsonFile).toBeCalledWith('first/path/package.json');
 		expect(readJsonFile).toBeCalledWith('and/second/path/package.json');

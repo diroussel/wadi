@@ -27,9 +27,11 @@ export type TargetEnvFile = {
 
 export type ComponentMap = Record<string, ComponentData>;
 
+export type ComponentLocation = {componentName: string; packagePath: string};
 export type ComponentList = Array<{componentName: string; packagePath: string}>;
 
 export type PkgJson = {
+	componentName?: string;
 	componentNames?: string[];
 	version: string;
 	workspaces?: string[];

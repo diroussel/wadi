@@ -36,7 +36,7 @@
     "@aws-sdk/types": "3.378.0",
     "glob": "^10.3.3",
     "node-stream-zip": "^1.15.0",
-    "p-map": "^6.0.0",
+    "p-map": "^4.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
@@ -69,6 +69,7 @@
       "import/no-cycle": "off",
       "n/file-extension-in-import": "off",
       "unicorn/prefer-module": "off",
+      "unicorn/prefer-top-level-await": "off",
       "unicorn/prevent-abbreviations": "off"
     }
   },
