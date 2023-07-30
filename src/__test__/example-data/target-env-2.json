@@ -1,6 +1,6 @@
 {
   "version_root": "2.18.0",
-  "s3_assets_bucket": "poph-228692257010-eu-west-2-mgmt-acct-cicd-artifacts",
+  "s3_assets_bucket": "example-bucket-name-1234",
   "s3_assets_path_root": "app1-artifacts/",
   "components": {
     "app1lambda": {
