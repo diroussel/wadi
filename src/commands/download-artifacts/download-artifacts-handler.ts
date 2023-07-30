@@ -8,7 +8,7 @@ import type {
 	ComponentData,
 	FunctionGroup,
 	TargetEnvFile,
-} from '../../types/gully-types';
+} from '../../types/wadi-types';
 import {writeS3ObjectToFile} from '../../aws';
 import type {DownloadArtifactsCliArgs} from './download-artifacts-command';
 

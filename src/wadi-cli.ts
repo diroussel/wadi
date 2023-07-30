@@ -5,10 +5,10 @@ import {generateTargetEnvCmd} from './commands/generate-target-env/generate-targ
 import {generateOpenapi3VarmapCommand} from './commands/generate-openapi3-varmap/generate-openapi3-varmap-command';
 import {downloadArtifactsCommand} from './commands/download-artifacts/download-artifacts-command';
 
-export async function gully(args: string[], exitProcess = true): Promise<void> {
+export async function wadi(args: string[], exitProcess = true): Promise<void> {
 	await yargs(args)
-		.usage('gully <command> [args]')
-		.scriptName('gully')
+		.usage('wadi <command> [args]')
+		.scriptName('wadi')
 		.command(downloadArtifactsCommand)
 		.command(generateOpenapi3VarmapCommand)
 		.command(generateTargetEnvCmd)
@@ -17,7 +17,7 @@ export async function gully(args: string[], exitProcess = true): Promise<void> {
 		.help()
 		.demandCommand(
 			1,
-			'You need to specify a command.  Or run "gully <command> --help" for a description of the arguments\n\n',
+			'You need to specify a command.  Or run "wadi <command> --help" for a description of the arguments\n\n',
 		)
 		.strict()
 		.wrap(150)

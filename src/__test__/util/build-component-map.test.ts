@@ -3,7 +3,7 @@ import {getComponents} from '../../util/get-components';
 import {buildComponentMap} from '../../util/build-component-map';
 
 jest.mock('glob');
-jest.mock('../../util/getComponents');
+jest.mock('../../util/get-components');
 const globMock = jest.mocked(glob);
 
 globMock.mockResolvedValue(['zip']);

@@ -1,6 +1,6 @@
 import type {Buffer} from 'node:buffer';
 import {readFile} from 'node:fs/promises';
-import type {TargetEnvFile} from '../types/gully-types';
+import type {TargetEnvFile} from '../types/wadi-types';
 
 /**
  * Read some JSON and cast to the supplied type. Not very safe, but safe enough

@@ -2,7 +2,7 @@ import {glob} from 'glob';
 import {getComponents} from '../../util/get-components';
 import {readJsonFile} from '../../util/parse-json';
 
-jest.mock('../../util/parseJson');
+jest.mock('../../util/parse-json');
 jest.mock('glob');
 const readJsonFileMock = jest.mocked(readJsonFile);
 const globMock = jest.mocked(glob);

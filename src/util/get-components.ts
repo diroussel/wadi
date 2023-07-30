@@ -1,6 +1,6 @@
 import path from 'node:path';
 import {glob} from 'glob';
-import type {PkgJson, ComponentList} from '../types/gully-types';
+import type {PkgJson, ComponentList} from '../types/wadi-types';
 import {readJsonFile} from './parse-json';
 
 export async function getComponents(

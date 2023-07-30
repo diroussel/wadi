@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import type {GullyCommandDef} from '../../types/gully-types';
+import type {WadiCommandDef} from '../../types/wadi-types';
 import {type TargetEnvArgs, targetEnvArgs} from '../common-args/target-env-args';
 import {generateTargetEnvHandler} from './generate-target-env-handler';
 
@@ -8,7 +8,7 @@ export type GenerateTargetEnvCliArgs = {
 	jsonOutput: string;
 } & TargetEnvArgs;
 
-export const generateTargetEnvCmd: GullyCommandDef<
+export const generateTargetEnvCmd: WadiCommandDef<
 {},
 GenerateTargetEnvCliArgs
 > = {

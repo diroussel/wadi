@@ -1,5 +1,5 @@
 import type {TargetEnvParams} from '../commands/common-args/target-env-args';
-import type {TargetEnvFile} from '../types/gully-types';
+import type {TargetEnvFile} from '../types/wadi-types';
 
 export function buildTargetEnv(parameters: TargetEnvParams): TargetEnvFile {
 	const {
@@ -32,8 +32,6 @@ export function buildTargetEnv(parameters: TargetEnvParams): TargetEnvFile {
       || component.includes('canary')
 		) {
 			type = 'lambda';
-		} else if (['gully'].includes(component)) {
-			type = 'pipelineutils';
 		} else if (
 			component.endsWith('test')
       || component.endsWith('e2e')

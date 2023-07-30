@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import type {GullyCommandDef} from '../../types/gully-types';
+import type {WadiCommandDef} from '../../types/wadi-types';
 import {downloadArtifactsHandler} from './download-artifacts-handler';
 
 export type DownloadArtifactsCliArgs = {
@@ -9,7 +9,7 @@ export type DownloadArtifactsCliArgs = {
 	concurrency: number;
 };
 
-export const downloadArtifactsCommand: GullyCommandDef<
+export const downloadArtifactsCommand: WadiCommandDef<
 {},
 DownloadArtifactsCliArgs
 > = {

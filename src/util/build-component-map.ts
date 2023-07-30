@@ -1,5 +1,5 @@
 import {glob} from 'glob';
-import type {ComponentMap} from '../types/gully-types';
+import type {ComponentMap} from '../types/wadi-types';
 import {getComponents} from './get-components';
 
 export async function buildComponentMap(

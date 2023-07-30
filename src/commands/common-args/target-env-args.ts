@@ -4,7 +4,7 @@ import {buildComponentMap} from '../../util/build-component-map';
 import {readJsonFile} from '../../util/parse-json';
 import {readCurrentGitBranch} from '../../util/read-current-git-branch';
 import {findGitRepoRoot} from '../../util/find-git-repo-root';
-import type {ComponentData, PkgJson} from '../../types/gully-types';
+import type {ComponentData, PkgJson} from '../../types/wadi-types';
 
 //
 // Common args definition and types, that can be used in and command that wants to generate target-env.json

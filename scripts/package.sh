@@ -5,7 +5,7 @@ set -e          # If a command fails, make the whole script exit,
 set -u          # Treat unset variables as an error, and immediately exit.
 set -o pipefail # If a command in a pipeline fails, make the whole command fail
 
-export COMPONENT="gully"
+export COMPONENT="wadi"
 
 
 export VERSION POINT_VERSION

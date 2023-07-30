@@ -9,7 +9,7 @@ import {
 } from '../get-object-s3';
 
 const mockSend = jest.fn();
-jest.mock('../s3Client', () => ({
+jest.mock('../s3-client', () => ({
 	getS3Client: jest.fn(() => ({send: mockSend})),
 }));
 

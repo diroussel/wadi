@@ -3,7 +3,7 @@ import type {CommandModule, Options} from 'yargs';
 /**
  * Add type constraint to CommandModule so that we ensure all args are specified
  */
-export type GullyCommandDef<T, U> = {
+export type WadiCommandDef<T, U> = {
 	builder: Record<keyof U, Options>;
 } & CommandModule<T, U>;
 

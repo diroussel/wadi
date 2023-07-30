@@ -10,7 +10,7 @@
       "zip_prefix": "DistPrefix.app1lambda-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/app1lambda/develop_2.18.0.12602/buildartifact/DistPrefix.app1lambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app1lambda-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.app1lambda-2.18.0.12602.zip"
     },
     "app2lambda": {
       "default_publish": true,
@@ -19,7 +19,7 @@
       "zip_prefix": "DistPrefix.app2lambda-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/app2lambda/develop_2.18.0.12602/buildartifact/DistPrefix.app2lambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app2lambda-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.app2lambda-2.18.0.12602.zip"
     },
     "notifylambda": {
       "default_publish": true,
@@ -28,7 +28,7 @@
       "zip_prefix": "DistPrefix.notifylambda-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/notifylambda/develop_2.18.0.12602/buildartifact/DistPrefix.notifylambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.notifylambda-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.notifylambda-2.18.0.12602.zip"
     },
     "cflambda": {
       "default_publish": true,
@@ -37,7 +37,7 @@
       "zip_prefix": "DistPrefix.cflambda-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/cflambda/develop_2.18.0.12602/buildartifact/DistPrefix.cflambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.cflambda-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.cflambda-2.18.0.12602.zip"
     },
     "dlqreplaylambda": {
       "default_publish": true,
@@ -46,7 +46,7 @@
       "zip_prefix": "DistPrefix.dlqreplaylambda-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/dlqreplaylambda/develop_2.18.0.12602/buildartifact/DistPrefix.dlqreplaylambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.dlqreplaylambda-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.dlqreplaylambda-2.18.0.12602.zip"
     },
     "pipelinelocking": {
       "default_publish": true,
@@ -54,7 +54,7 @@
       "zip_prefix": "DistPrefix.pipelinelocking-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/pipelinelocking/develop_2.18.0.12602/buildartifact/DistPrefix.pipelinelocking-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.pipelinelocking-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.pipelinelocking-2.18.0.12602.zip"
     },
     "frontend2lambda": {
       "default_publish": true,
@@ -63,7 +63,7 @@
       "zip_prefix": "DistPrefix.frontend2lambda-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/frontend2lambda/develop_2.18.0.12602/buildartifact/DistPrefix.frontend2lambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.frontend2lambda-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.frontend2lambda-2.18.0.12602.zip"
     },
     "frontend5lambda": {
       "default_publish": true,
@@ -72,7 +72,7 @@
       "zip_prefix": "DistPrefix.frontend5lambda-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/frontend5lambda/develop_2.18.0.12602/buildartifact/DistPrefix.frontend5lambda-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.frontend5lambda-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.frontend5lambda-2.18.0.12602.zip"
     },
     "app1canary": {
       "default_publish": true,
@@ -81,7 +81,7 @@
       "zip_prefix": "DistPrefix.app1canary-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/app1canary/develop_2.18.0.12602/buildartifact/DistPrefix.app1canary-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app1canary-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.app1canary-2.18.0.12602.zip"
     },
     "terraform": {
       "default_publish": true,
@@ -89,7 +89,7 @@
       "zip_prefix": "DistPrefix.terraform-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/terraform/develop_2.18.0.12602/buildartifact/DistPrefix.terraform-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.terraform-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.terraform-2.18.0.12602.zip"
     },
     "frontent2static": {
       "default_publish": true,
@@ -98,7 +98,7 @@
       "zip_prefix": "DistPrefix.frontent2static-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/frontent2static/develop_2.18.0.12602/buildartifact/DistPrefix.frontent2static-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.frontent2static-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.frontent2static-2.18.0.12602.zip"
     },
     "landingpagestatic": {
       "default_publish": true,
@@ -107,7 +107,7 @@
       "zip_prefix": "DistPrefix.landingpagestatic-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/landingpagestatic/develop_2.18.0.12602/buildartifact/DistPrefix.landingpagestatic-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.landingpagestatic-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.landingpagestatic-2.18.0.12602.zip"
     },
     "app1exporttest": {
       "default_publish": true,
@@ -115,7 +115,7 @@
       "zip_prefix": "DistPrefix.app1exporttest-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/app1exporttest/develop_2.18.0.12602/buildartifact/DistPrefix.app1exporttest-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app1exporttest-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.app1exporttest-2.18.0.12602.zip"
     },
     "candidateseventperfexporttest": {
       "default_publish": true,
@@ -123,7 +123,7 @@
       "zip_prefix": "DistPrefix.candidateseventperfexporttest-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/candidateseventperfexporttest/develop_2.18.0.12602/buildartifact/DistPrefix.candidateseventperfexporttest-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.candidateseventperfexporttest-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.candidateseventperfexporttest-2.18.0.12602.zip"
     },
     "perftestapp1": {
       "default_publish": true,
@@ -131,7 +131,7 @@
       "zip_prefix": "DistPrefix.perftestapp1-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/perftestapp1/develop_2.18.0.12602/buildartifact/DistPrefix.perftestapp1-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.perftestapp1-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.perftestapp1-2.18.0.12602.zip"
     },
     "app1e2e": {
       "default_publish": true,
@@ -139,7 +139,7 @@
       "zip_prefix": "DistPrefix.app1e2e-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/app1e2e/develop_2.18.0.12602/buildartifact/DistPrefix.app1e2e-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.app1e2e-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.app1e2e-2.18.0.12602.zip"
     },
     "frontend5postdeploy": {
       "default_publish": true,
@@ -147,7 +147,7 @@
       "zip_prefix": "DistPrefix.frontend5postdeploy-",
       "zip_branch": "develop",
       "build_artifact_path": "app1-artifacts/frontend5postdeploy/develop_2.18.0.12602/buildartifact/DistPrefix.frontend5postdeploy-2.18.0.12602.zip",
-      "localZipFile": "/root/example-location/proj/packages/infrastructure/gully/output1/DistPrefix.frontend5postdeploy-2.18.0.12602.zip"
+      "localZipFile": "/root/example-location/proj/packages/infrastructure/wadi/output1/DistPrefix.frontend5postdeploy-2.18.0.12602.zip"
     }
   },
   "release-version": "2.18.0.7857",

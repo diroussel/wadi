@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import type {GullyCommandDef} from '../../types/gully-types';
+import type {WadiCommandDef} from '../../types/wadi-types';
 import {generateTargetEnvHandler} from './generate-openapi3-varmap-handler';
 
 export type GenerateOpenapi3VarMapCliArgs = {
@@ -7,7 +7,7 @@ export type GenerateOpenapi3VarMapCliArgs = {
 	jsonOutput?: string;
 };
 
-export const generateOpenapi3VarmapCommand: GullyCommandDef<
+export const generateOpenapi3VarmapCommand: WadiCommandDef<
 {},
 GenerateOpenapi3VarMapCliArgs
 > = {
