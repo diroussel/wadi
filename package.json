@@ -4,24 +4,29 @@
     "wadi"
   ],
   "description": "The pipeline util",
-  "version": "1.0.0",
-  "main": "src/wadi.ts",
+  "version": "0.4.0",
   "private": true,
   "sideEffects": false,
+  "exports": {
+    "import": "./target/bundle/wadi.mjs",
+    "require": "./target/bundle/wadi.js"
+  },
   "bin": {
-    "gully": "target/bundle/wadi.js"
+    "wadi": "target/bundle/wadi.js"
   },
   "files": [
     "target/bundle"
   ],
   "scripts": {
     "clean": "rm -rf target dist",
+    "build": "tsup",
     "test:unit": "jest",
     "cover:unit": "pnpm run test:unit --coverage",
     "lint": "pnpm lint:js && pnpm lint:fmt",
     "lint:js": "eslint --cache .",
     "lint:fmt": "prettier --check .",
     "fix": "pnpm prettier -w . && pnpm eslint --quiet --fix .",
+    "prepare": "pnpm build",
     "package": "./scripts/package.sh"
   },
   "dependencies": {
