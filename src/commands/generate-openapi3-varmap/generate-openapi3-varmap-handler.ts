@@ -1,8 +1,8 @@
 
 import {async as StreamZip} from 'node-stream-zip';
 import pMap from 'p-map';
-import {writeOutputFile} from '../../util/writeOutputFile';
-import {parseJson, readTargetEnvJson} from '../../util/parseJson';
+import {writeOutputFile} from '../../util/write-output-file';
+import {parseJson, readTargetEnvJson} from '../../util/parse-json';
 import type {FunctionGroup, LambdaMappings} from '../../types/gully-types';
 import type {GenerateOpenapi3VarMapCliArgs} from './generate-openapi3-varmap-command';
 

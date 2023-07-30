@@ -29,10 +29,8 @@ export function buildTargetEnv(parameters: TargetEnvParams): TargetEnvFile {
 			type = 'apigateway';
 		} else if (
 			component.endsWith('lambda')
-      || component === 'dynamodb2sqs'
       || component.includes('canary')
 		) {
-			// TODO: rename dynamodb2sqs
 			type = 'lambda';
 		} else if (['gully'].includes(component)) {
 			type = 'pipelineutils';

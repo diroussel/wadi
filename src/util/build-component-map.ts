@@ -1,6 +1,6 @@
 import {glob} from 'glob';
 import type {ComponentMap} from '../types/gully-types';
-import {getComponents} from './getComponents';
+import {getComponents} from './get-components';
 
 export async function buildComponentMap(
 	addLocalZipPath: boolean,

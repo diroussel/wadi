@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {promisify} from 'node:util';
 import {pipeline, type Readable} from 'node:stream';
 import {GetObjectCommand, ListObjectsV2Command} from '@aws-sdk/client-s3';
-import {getS3Client} from './s3Client';
+import {getS3Client} from './s3-client';
 import {StreamCounter} from './stream-counter';
 import type {S3Location} from './types';
 

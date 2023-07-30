@@ -1,4 +1,4 @@
-export * from './getObjectS3';
+export * from './get-object-s3';
 export * from './locations';
-export * from './putDataS3';
+export * from './put-data-s3';
 export * from './types';

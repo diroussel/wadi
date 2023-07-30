@@ -2,8 +2,8 @@
 import {join, resolve} from 'node:path';
 import {existsSync, mkdirSync} from 'node:fs';
 import pMap from 'p-map';
-import {writeOutputFile} from '../../util/writeOutputFile';
-import {readTargetEnvJson} from '../../util/parseJson';
+import {writeOutputFile} from '../../util/write-output-file';
+import {readTargetEnvJson} from '../../util/parse-json';
 import type {
 	ComponentData,
 	FunctionGroup,

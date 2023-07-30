@@ -2,7 +2,7 @@ import {readFile} from 'node:fs/promises';
 import pMap from 'p-map';
 import type {ComponentData} from '../types/gully-types';
 import type {TargetEnvParams} from '../commands/common-args/target-env-args';
-import {uploadObjectToS3} from '../aws/putDataS3';
+import {uploadObjectToS3} from '../aws/put-data-s3';
 
 export async function uploadComponentZipFiles(
 	parameters: TargetEnvParams,

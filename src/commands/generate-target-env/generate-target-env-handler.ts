@@ -1,9 +1,9 @@
 import type {Buffer} from 'node:buffer';
 import type {Readable} from 'node:stream';
-import {uploadComponentZipFiles} from '../../util/uploadComponentZipFiles';
-import {writeOutputFile} from '../../util/writeOutputFile';
+import {uploadComponentZipFiles} from '../../util/upload-component-zip-files';
+import {writeOutputFile} from '../../util/write-output-file';
 import {processTargetEnvCliArgs} from '../common-args/target-env-args';
-import {buildTargetEnv} from '../../util/buildTargetEnv';
+import {buildTargetEnv} from '../../util/build-target-env';
 import type {GenerateTargetEnvCliArgs} from './generate-target-env-command';
 
 // ////////////////////////////////////////////////////////////////////

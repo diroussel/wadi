@@ -6,7 +6,7 @@ import {
 	getS3Object,
 	listS3Objects,
 	writeS3ObjectToFile,
-} from '../getObjectS3';
+} from '../get-object-s3';
 
 const mockSend = jest.fn();
 jest.mock('../s3Client', () => ({

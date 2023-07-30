@@ -1,6 +1,6 @@
 import {glob} from 'glob';
-import {getComponents} from '../../util/getComponents';
-import {readJsonFile} from '../../util/parseJson';
+import {getComponents} from '../../util/get-components';
+import {readJsonFile} from '../../util/parse-json';
 
 jest.mock('../../util/parseJson');
 jest.mock('glob');

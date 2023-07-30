@@ -1,7 +1,6 @@
 
-import type {Readable} from 'node:stream';
 import {PutObjectCommand, type PutObjectCommandOutput} from '@aws-sdk/client-s3';
-import {getS3Client} from './s3Client';
+import {getS3Client} from './s3-client';
 import type {Upload, S3Location} from './types';
 
 export async function putDataS3(
@@ -15,11 +14,11 @@ export async function putDataS3(
 			Body: JSON.stringify(fileData, null, 2),
 		};
 
-		const data = getS3Client().send(new PutObjectCommand(parameters));
+		const data = await getS3Client().send(new PutObjectCommand(parameters));
 		console.log(`Data uploaded to ${Bucket}/${Key}`);
-		return await data;
+		return data;
 	} catch (error) {
-		throw new Error(`Upload to ${Bucket}/${Key} failed, error: ${error}`);
+		throw new Error(`Upload to ${Bucket}/${Key} failed, error: ${String(error)}`);
 	}
 }
 

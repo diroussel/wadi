@@ -1,9 +1,9 @@
 import process from 'node:process';
 import type {Options} from 'yargs';
-import {buildComponentMap} from '../../util/buildComponentMap';
-import {readJsonFile} from '../../util/parseJson';
-import {readCurrentGitBranch} from '../../util/readCurrentGitBranch';
-import {findGitRepoRoot} from '../../util/findGitRepoRoot';
+import {buildComponentMap} from '../../util/build-component-map';
+import {readJsonFile} from '../../util/parse-json';
+import {readCurrentGitBranch} from '../../util/read-current-git-branch';
+import {findGitRepoRoot} from '../../util/find-git-repo-root';
 import type {ComponentData, PkgJson} from '../../types/gully-types';
 
 //
@@ -133,7 +133,7 @@ export async function processTargetEnvCliArgs({
 		const ciCommitRef = process.env.CI_COMMIT_REF_NAME;
 		// See if we are in a ci/cd pipeline so use the current branch according to CI
 		// if no branch is specified, ask git what branch we are on
-		branch = ciCommitRef || await readCurrentGitBranch();
+		branch = ciCommitRef ?? await readCurrentGitBranch();
 	}
 
 	const componentVersion = buildVersion === 'latest' ? 'latest' : `${versionRoot}.${buildNum}`;

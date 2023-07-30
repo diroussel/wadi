@@ -1,4 +1,4 @@
-import {putDataS3, uploadObjectToS3} from '../putDataS3';
+import {putDataS3, uploadObjectToS3} from '../put-data-s3';
 
 const mockSend = jest.fn();
 jest.mock('../s3Client', () => ({

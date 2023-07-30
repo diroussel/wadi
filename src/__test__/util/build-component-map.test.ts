@@ -1,6 +1,6 @@
 import {glob} from 'glob';
-import {getComponents} from '../../util/getComponents';
-import {buildComponentMap} from '../../util/buildComponentMap';
+import {getComponents} from '../../util/get-components';
+import {buildComponentMap} from '../../util/build-component-map';
 
 jest.mock('glob');
 jest.mock('../../util/getComponents');
