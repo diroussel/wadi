@@ -64,14 +64,16 @@
       "@typescript-eslint/no-unsafe-assignment": "off",
       "@typescript-eslint/no-unsafe-call": "off",
       "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/return-await": ["off", "always"],
       "import/extensions": "off",
       "import/no-anonymous-default-export": "off",
       "import/no-cycle": "off",
+      "no-return-await": "off",
       "n/file-extension-in-import": "off",
       "unicorn/prefer-module": "off",
       "unicorn/prefer-top-level-await": "off",
       "unicorn/prevent-abbreviations": "off"
     }
   },
-  "packageManager": "npm"
+  "packageManager": "npm@9.5.1"
 }
