@@ -1,17 +1,20 @@
 import {glob} from 'glob';
 import {getComponents} from '../../util/get-components';
 import {readJsonFile} from '../../util/parse-json';
+import {execStr} from '../../util/exec-async';
 import type {PkgJson} from '../../types/wadi-types';
 
-jest.mock('../../util/parse-json');
 jest.mock('glob');
+jest.mock('../../util/parse-json');
+jest.mock('../../util/exec-async', () => ({execStr: jest.fn()}));
 const readJsonFileMock = jest.mocked(readJsonFile);
 const globMock = jest.mocked(glob);
 
 describe('getComponents', () => {
 	it('an error is thrown if no workspaces can be read from root package.json', async () => {
+		(execStr as jest.Mock).mockReturnValue('');
 		await expect(
-			async () => getComponents('rootDir'),
+			async () => getComponents('rootDir', ''),
 		).rejects.toThrowError('workspaces not found');
 	});
 
@@ -22,7 +25,7 @@ describe('getComponents', () => {
 
 		globMock.mockResolvedValueOnce([]);
 
-		await getComponents('testRootDirectory');
+		await getComponents('testRootDirectory', '');
 
 		expect(glob).toBeCalledWith(
 			'testRootDirectory/{workspaceDir1,workspaceDir2}/package.json',
@@ -58,7 +61,7 @@ describe('getComponents', () => {
 			'and/second/path/package.json',
 		]);
 
-		const components = await getComponents('rootDir');
+		const components = await getComponents('rootDir', '');
 		expect(components).toMatchSnapshot();
 
 		expect(readJsonFile).toBeCalledWith('first/path/package.json');
@@ -78,7 +81,7 @@ describe('getComponents', () => {
 		});
 		readJsonFileMock.mockResolvedValueOnce({});
 
-		expect(await getComponents('rootDir')).toEqual([
+		expect(await getComponents('rootDir', '')).toEqual([
 			{componentName: 'component', packagePath: 'first/path'},
 		]);
 	});
@@ -92,7 +95,7 @@ describe('getComponents', () => {
 			componentNames: ['firstComponent', 'andSecondComponent'],
 		});
 
-		expect(await getComponents('rootDir')).toEqual([
+		expect(await getComponents('rootDir', '')).toEqual([
 			{componentName: 'firstComponent', packagePath: 'first/path'},
 			{componentName: 'andSecondComponent', packagePath: 'first/path'},
 		]);

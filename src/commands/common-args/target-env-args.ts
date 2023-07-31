@@ -19,7 +19,7 @@ export type TargetEnvArgs = {
 	branch: string;
 	s3AssetsBucket: string;
 	s3AssetsPathRoot: string;
-	distPrefix: string;
+	distPrefix: string;appPrefix: string;
 	addLocalZipPath: boolean;
 };
 
@@ -105,6 +105,7 @@ export async function processTargetEnvCliArgs({
 	s3AssetsPathRoot,
 	distPrefix,
 	addLocalZipPath,
+	appPrefix,
 }: TargetEnvArgs): Promise<TargetEnvParams> {
 	if (!projRootDir) {
 		projRootDir = await findGitRepoRoot();
@@ -113,7 +114,7 @@ export async function processTargetEnvCliArgs({
 	let componentMap;
 	if (!componentNames || componentNames.length === 0) {
 		// No components passed in cli args, so read them from disk
-		componentMap = await buildComponentMap(addLocalZipPath, projRootDir, distPrefix);
+		componentMap = await buildComponentMap(addLocalZipPath, projRootDir, distPrefix, appPrefix);
 	} else {
 		// Comma separate list passed in as an arg, split and convert to map
 
