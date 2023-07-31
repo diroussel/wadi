@@ -21,11 +21,11 @@
     "clean": "rm -rf target dist",
     "build": "tsup",
     "test:unit": "jest",
-    "cover:unit": "pnpm run test:unit --coverage",
+    "cover:unit": "npm run test:unit --coverage",
     "lint": "xo",
     "fix":  "xo --fix",
-    "prepare": "pnpm build",
-    "test": "pnpm test:unit && pnpm lint",
+    "prepare": "npm run build",
+    "test": "npm run test:unit && npm run lint",
     "package": "./scripts/package.sh"
   },
   "dependencies": {
@@ -73,5 +73,5 @@
       "unicorn/prevent-abbreviations": "off"
     }
   },
-  "packageManager": "pnpm@8.6.10"
+  "packageManager": "npm"
 }
