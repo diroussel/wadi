@@ -113,7 +113,7 @@ export async function processTargetEnvCliArgs({
 	let componentMap;
 	if (!componentNames || componentNames.length === 0) {
 		// No components passed in cli args, so read them from disk
-		componentMap = await buildComponentMap(addLocalZipPath, projRootDir);
+		componentMap = await buildComponentMap(addLocalZipPath, projRootDir, distPrefix);
 	} else {
 		// Comma separate list passed in as an arg, split and convert to map
 

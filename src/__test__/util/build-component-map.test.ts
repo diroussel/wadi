@@ -17,7 +17,7 @@ globMock.mockResolvedValue(['zip']);
 describe('buildComponentMap', () => {
 	describe('addLocalZipPath arg is true', () => {
 		it('glob will be called with name and path from each component returned by getComponents', async () => {
-			await buildComponentMap(true, 'rootDirPath');
+			await buildComponentMap(true, 'rootDirPath', 'DistPrefix.');
 
 			expect(glob).toBeCalledTimes(3);
 
@@ -35,7 +35,7 @@ describe('buildComponentMap', () => {
 		it('if no zip is found, an error is thrown', async () => {
 			globMock.mockResolvedValueOnce([]);
 			await expect(
-				async () => buildComponentMap(true, 'rootDirPath'),
+				async () => buildComponentMap(true, 'rootDirPath', 'DistPrefix.'),
 			).rejects.toThrowError('Local zip not found, packagePath: this/path');
 		});
 
@@ -43,7 +43,7 @@ describe('buildComponentMap', () => {
 			globMock.mockResolvedValueOnce(['firstZip', 'andSecond']);
 
 			await expect(
-				async () => buildComponentMap(true, 'rootDirPath'),
+				async () => buildComponentMap(true, 'rootDirPath', 'DistPrefix.'),
 			).rejects.toThrowError('Too many zips found, packagePath: this/path');
 		});
 
@@ -52,7 +52,7 @@ describe('buildComponentMap', () => {
 			globMock.mockResolvedValueOnce(['two']);
 			globMock.mockResolvedValueOnce(['three']);
 
-			expect(await buildComponentMap(true, 'rootDirPath')).toEqual({
+			expect(await buildComponentMap(true, 'rootDirPath', 'DistPrefix.')).toEqual({
 				lambda: {
 					localZipFile: 'zip',
 				},
@@ -69,7 +69,7 @@ describe('buildComponentMap', () => {
 	it('if addLocalZipPath is false, ComponentMap values are empty objects', async () => {
 		globMock.mockResolvedValueOnce(['zip']);
 
-		expect(await buildComponentMap(false, 'rootDirPath')).toEqual({
+		expect(await buildComponentMap(false, 'rootDirPath', 'DistPrefix.')).toEqual({
 			lambda: {},
 			package: {},
 			tool: {},
