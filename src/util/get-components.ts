@@ -20,18 +20,15 @@ type PnpmListItem = {
 	private: boolean;
 };
 
-async function listWorkspaces(projRootDir: string, appPrefix: string) {
-	const rootPkgJson = await readJsonFile<PkgJson>(
-		`${projRootDir}/package.json`,
-	);
-	if (rootPkgJson?.workspaces) {
-		const workspaces = rootPkgJson.workspaces.join(',');
-		return await glob(`${projRootDir}/{${workspaces}}/package.json`, {
-			ignore: '**/node_modules/**',
-		});
+async function findAllPkgJsonInWorkspace(projRootDir: string, appPrefix: string) {
+	const rootPkgJson = await readJsonFile<PkgJson>(`${projRootDir}/package.json`);
+	const workspaces = rootPkgJson?.workspaces?.join(',');
+	if (workspaces) {
+		return await glob(`${projRootDir}/{${workspaces}}/package.json`, {ignore: '**/node_modules/**'});
 	}
 
-	try {	// No yarn workspaces found, so look for pnpm workspaces
+	// No yarn workspaces found, so look for pnpm workspaces
+	try {
 		const command = `cd '${projRootDir}'; pnpm ls --filter './${appPrefix}/**' --json --depth -1`;
 		const packages = JSON.parse(await execStr(command)) as PnpmListItem[];
 		if (packages) {
@@ -48,7 +45,7 @@ export async function getComponents(
 	projRootDir: string,
 	appPrefix: string,
 ): Promise<ComponentList> {
-	const paths = await listWorkspaces(projRootDir, appPrefix);
+	const paths = await findAllPkgJsonInWorkspace(projRootDir, appPrefix);
 
 	const list = await pMap(paths, listComponentsInPackage, {concurrency: 3});
 	return list.flat();
