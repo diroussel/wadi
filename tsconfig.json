@@ -4,7 +4,6 @@
     "composite": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "importsNotUsedAsValues": "error",
     "lib": ["ES2022"],
     "module": "ES2022",
     "moduleResolution": "node",

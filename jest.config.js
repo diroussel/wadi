@@ -1,11 +1,11 @@
-const {name: componentName} = require('./package.json');
-
 module.exports = {
+	rootDir: '.',
+	testEnvironment: 'node',
 	moduleDirectories: ['node_modules'],
 	coveragePathIgnorePatterns: ['__test__', 'config.ts'],
 	transformIgnorePatterns: ['node_modules'],
 	testPathIgnorePatterns: ['/node_modules/', '/target/'],
-	coverageDirectory: `<rootDir>/target/reports/coverage/${componentName}`,
+	coverageDirectory: '<rootDir>/target/reports/coverage',
 	transform: {'\\.(t|j)sx?$': '@swc/jest'},
 	collectCoverageFrom: [
 		'src/**/*.ts',
