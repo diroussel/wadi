@@ -83,7 +83,9 @@ async function enrichComponentData({
 	const functionGroup
     = parseJson<LambdaMappings>(lambdaMappings).lambda_function_group;
 
-	return {component, version, functionGroup, localZipFile};
+	return {
+		component, version, functionGroup, localZipFile,
+	};
 }
 
 async function buildEnvVarMap(

@@ -38,7 +38,9 @@ describe('getS3Object', () => {
 			},
 		});
 
-		mockSend.mockReturnValueOnce({Body: Readable.from([result])});
+		const transformToString = () => result;
+		const read = () => result;
+		mockSend.mockReturnValueOnce({Body: {transformToString, read}});
 
 		const data = await getS3Object({
 			Bucket: 'bucket-name',

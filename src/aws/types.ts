@@ -7,7 +7,7 @@ export type S3Location = {
 };
 
 export type Upload = {
-	Body: Readable | ReadableStream | Blob | string | Uint8Array | Buffer;
+	Body: Readable | ReadableStream | Blob | string | Uint8Array;
 	Bucket: string;
 	Key: string;
 	ACL?: string;

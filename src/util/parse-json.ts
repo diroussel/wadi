@@ -1,12 +1,11 @@
-import type {Buffer} from 'node:buffer';
 import {readFile} from 'node:fs/promises';
 import type {TargetEnvFile} from '../types/wadi-types';
 
 /**
  * Read some JSON and cast to the supplied type. Not very safe, but safe enough
  */
-export function parseJson<T>(buffer: Buffer): T {
-	return JSON.parse(buffer.toString('utf8')) as T;
+export function parseJson<T>(buffer: Uint8Array): T {
+	return JSON.parse(new TextDecoder().decode(buffer)) as T;
 }
 
 export async function readJsonFile<T>(path: string): Promise<T> {

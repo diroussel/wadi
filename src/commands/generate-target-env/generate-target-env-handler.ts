@@ -1,4 +1,3 @@
-import type {Buffer} from 'node:buffer';
 import type {Readable} from 'node:stream';
 import {uploadComponentZipFiles} from '../../util/upload-component-zip-files';
 import {writeOutputFile} from '../../util/write-output-file';
@@ -11,7 +10,7 @@ import type {GenerateTargetEnvCliArgs} from './generate-target-env-command';
 // ////////////////////////////////////////////////////////////////////
 
 export type Upload = {
-	Body: Readable | ReadableStream | Blob | string | Uint8Array | Buffer;
+	Body: Readable | ReadableStream | Blob | string | Uint8Array;
 	Bucket: string;
 	Key: string;
 	ACL?: string;

@@ -107,9 +107,7 @@ export async function processTargetEnvCliArgs({
 	addLocalZipPath,
 	appPrefix,
 }: TargetEnvArgs): Promise<TargetEnvParams> {
-	if (!projRootDir) {
-		projRootDir = await findGitRepoRoot();
-	}
+	projRootDir ||= await findGitRepoRoot();
 
 	let componentMap;
 	if (!componentNames || componentNames.length === 0) {
