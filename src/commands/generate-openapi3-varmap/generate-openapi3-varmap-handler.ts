@@ -2,8 +2,8 @@ import pMap from 'p-map';
 import {writeOutputFile} from '../../util/write-output-file';
 import {parseJson, readTargetEnvJson} from '../../util/parse-json';
 import type {FunctionGroup, LambdaMappings} from '../../types/wadi-types';
+import {readFileContentsFromZipFile} from '../../util/read-zip';
 import type {GenerateOpenapi3VarMapCliArgs} from './generate-openapi3-varmap-command';
-import {readFileContentsFromZipFile} from "../../util/read-zip";
 
 // ////////////////////////////////////////////////////////////////////
 // Types
@@ -56,7 +56,6 @@ async function readTargetEnv({
 
 	return {components, targetEnvJsonPath};
 }
-
 
 /**
  * Open the component zip, and read the lambda-mappings.json file so we can know the name of all the functions

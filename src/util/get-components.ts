@@ -31,7 +31,7 @@ async function findAllPkgJsonInWorkspace(projRootDir: string, appPrefix: string)
 	try {
 		const command = `cd '${projRootDir}'; pnpm ls --filter './${appPrefix}/**' --json --depth -1`;
 		const stdout = await execStr(command);
-		if (stdout.charAt(0) === '[') {
+		if (stdout.startsWith('[')) {
 			const packages = JSON.parse(stdout) as PnpmListItem[];
 			if (packages) {
 				return packages.map(({path}) => `${path}/package.json`);
@@ -40,7 +40,7 @@ async function findAllPkgJsonInWorkspace(projRootDir: string, appPrefix: string)
 			throw new Error(`Failed to list packages.\n${stdout}`);
 		}
 	} catch (error) {
-		throw new Error(`workspaces not found. Error: ${String(error)}`, { cause: error});
+		throw new Error(`workspaces not found. Error: ${String(error)}`, {cause: error});
 	}
 
 	throw new Error('workspaces not found');

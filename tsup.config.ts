@@ -4,10 +4,10 @@ export default defineConfig({
 	clean: true,
 	entry: ['src/wadi.ts'],
 	metafile: true,
-	// noExternal: [/.*/],
+	// NoExternal: [/.*/],
 	outDir: 'target/bundle',
 	sourcemap: true,
 	splitting: false,
-	// treeshake: true,
+	// Treeshake: true,
 	format: ['esm', 'cjs'],
 });
