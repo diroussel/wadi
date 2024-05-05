@@ -30,12 +30,17 @@ async function findAllPkgJsonInWorkspace(projRootDir: string, appPrefix: string)
 	// No yarn workspaces found, so look for pnpm workspaces
 	try {
 		const command = `cd '${projRootDir}'; pnpm ls --filter './${appPrefix}/**' --json --depth -1`;
-		const packages = JSON.parse(await execStr(command)) as PnpmListItem[];
-		if (packages) {
-			return packages.map(({path}) => `${path}/package.json`);
+		const stdout = await execStr(command);
+		if (stdout.charAt(0) === '[') {
+			const packages = JSON.parse(stdout) as PnpmListItem[];
+			if (packages) {
+				return packages.map(({path}) => `${path}/package.json`);
+			}
+		} else {
+			throw new Error(`Failed to list packages.\n${stdout}`);
 		}
 	} catch (error) {
-		throw new Error(`workspaces not found. Error: ${String(error)}`);
+		throw new Error(`workspaces not found. Error: ${String(error)}`, { cause: error});
 	}
 
 	throw new Error('workspaces not found');

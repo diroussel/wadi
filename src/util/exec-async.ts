@@ -39,5 +39,6 @@ export async function execStr(
 	options: AsyncExecOptions & ExecOptions = {},
 ): Promise<string> {
 	const proc = await execAsync(command, options);
+	console.error(proc.stderr);
 	return proc.stdout.trim();
 }

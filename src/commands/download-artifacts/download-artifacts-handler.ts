@@ -1,4 +1,3 @@
-
 import {join, resolve} from 'node:path';
 import {existsSync, mkdirSync} from 'node:fs';
 import pMap from 'p-map';
@@ -38,9 +37,9 @@ function downloadComponent(destDir: string, Bucket: string) {
 	}
 
 	/**
-   * Download the zip for the given component and update the component map with
-   * the download location
-   */
+	 * Download the zip for the given component and update the component map with
+	 * the download location
+	 */
 	return async ([component, componentData]: [
 		string,
 		ComponentData]): Promise<number> => {
@@ -69,15 +68,12 @@ async function downloadArtifacts(
 	const buildTypeList: string[] = buildTypes?.split(',');
 
 	const start = Date.now();
-	const results = await pMap(
-		Object.entries(components).filter(
-			([, comp]) =>
-				!buildTypeList
-        || (comp.build_type && buildTypeList.includes(comp.build_type)),
-		),
-		downloadComponent(outputFolder, s3_assets_bucket),
-		{concurrency},
+	const downloaderFn = downloadComponent(outputFolder, s3_assets_bucket);
+	const files = Object.entries(components).filter(
+		([, {build_type}]) => !buildTypeList
+			|| (buildTypeList.includes(build_type!)),
 	);
+	const results = await pMap(files, downloaderFn, {concurrency});
 	const finish = Date.now();
 	let fileCount = 0;
 	let byteCount = 0;

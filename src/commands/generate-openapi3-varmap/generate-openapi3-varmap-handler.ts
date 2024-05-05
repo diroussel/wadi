@@ -1,10 +1,9 @@
-
-import {async as StreamZip} from 'node-stream-zip';
 import pMap from 'p-map';
 import {writeOutputFile} from '../../util/write-output-file';
 import {parseJson, readTargetEnvJson} from '../../util/parse-json';
 import type {FunctionGroup, LambdaMappings} from '../../types/wadi-types';
 import type {GenerateOpenapi3VarMapCliArgs} from './generate-openapi3-varmap-command';
+import {readFileContentsFromZipFile} from "../../util/read-zip";
 
 // ////////////////////////////////////////////////////////////////////
 // Types
@@ -58,6 +57,7 @@ async function readTargetEnv({
 	return {components, targetEnvJsonPath};
 }
 
+
 /**
  * Open the component zip, and read the lambda-mappings.json file so we can know the name of all the functions
  * defined inside. We want to put these function names into terraform vars, to pass to the openapi3 module
@@ -72,9 +72,7 @@ async function enrichComponentData({
 	localZipFile,
 }: TargetComponentData): Promise<TargetComponentData> {
 	// Open zip file, and read the file
-	const zip = new StreamZip({file: localZipFile});
-	const lambdaMappings = await zip.entryData('lambda-mappings.json');
-	await zip.close();
+	const lambdaMappings = await readFileContentsFromZipFile(localZipFile, 'lambda-mappings.json');
 
 	// Trim build number off version, to avoid terraform updates on minor builds
 	version = version.slice(0, Math.max(0, version.lastIndexOf('.')));

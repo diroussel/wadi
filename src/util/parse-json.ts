@@ -8,6 +8,10 @@ export function parseJson<T>(buffer: Uint8Array): T {
 	return JSON.parse(new TextDecoder().decode(buffer)) as T;
 }
 
+export function parseJsonText<T>(text: string): T {
+	return JSON.parse(text) as T;
+}
+
 export async function readJsonFile<T>(path: string): Promise<T> {
 	return parseJson<T>(await readFile(path));
 }
