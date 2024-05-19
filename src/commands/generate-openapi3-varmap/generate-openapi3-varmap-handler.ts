@@ -1,6 +1,6 @@
 import pMap from 'p-map';
 import {writeOutputFile} from '../../util/write-output-file';
-import {parseJson, readTargetEnvJson} from '../../util/parse-json';
+import {parseJsonText, readTargetEnvJson} from '../../util/parse-json';
 import type {FunctionGroup, LambdaMappings} from '../../types/wadi-types';
 import {readFileContentsFromZipFile} from '../../util/read-zip';
 import type {GenerateOpenapi3VarMapCliArgs} from './generate-openapi3-varmap-command';
@@ -78,7 +78,7 @@ async function enrichComponentData({
 
 	// Parse the json and extract the data we need
 	const functionGroup
-    = parseJson<LambdaMappings>(lambdaMappings).lambda_function_group;
+    = parseJsonText<LambdaMappings>(lambdaMappings).lambda_function_group;
 
 	return {
 		component, version, functionGroup, localZipFile,

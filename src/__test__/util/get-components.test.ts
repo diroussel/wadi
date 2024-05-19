@@ -33,6 +33,17 @@ describe('getComponents', () => {
 		);
 	});
 
+	it.skip('glob should be called with workspaces, and projRootDir arg', async () => {
+		(execStr as jest.Mock).mockReturnValue('["workspaceDir1", "workspaceDir2"]');
+
+		await getComponents('testRootDirectory', '');
+
+		expect(glob).toBeCalledWith(
+			'testRootDirectory/{workspaceDir1,workspaceDir2}/package.json',
+			{ignore: '**/node_modules/**'},
+		);
+	});
+
 	it('readJsonFile will be called with each path returned by glob', async () => {
 		readJsonFileMock.mockImplementation(async (path): Promise<PkgJson> => {
 			switch (path) {

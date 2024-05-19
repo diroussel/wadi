@@ -1,28 +1,40 @@
 import {type Readable} from 'node:stream';
+import {StringDecoder} from 'node:string_decoder';
 import yauzl from 'yauzl-promise';
 
-export async function streamToBuffer(stream: Readable): Promise<Buffer> {
-	// Lets have a ReadableStream as a stream variable
-	const chunks = [];
+async function readToSting(readable: Readable): Promise<string> {
+	const decoder = new StringDecoder('utf8');
+	let result = '';
 
-	for await (const chunk of stream) {
-		chunks.push(Buffer.from(chunk));
-	}
+	return new Promise((resolve, reject) => {
+		readable.on('data', (chunk: Uint8Array) => {
+			result += decoder.write(chunk);
+		});
 
-	return Buffer.concat(chunks);
+		readable.on('end', () => {
+			result += decoder.end();
+			resolve(result);
+		});
+
+		readable.on('error', err => {
+			reject(err);
+		});
+	});
 }
 
-export async function readFileContentsFromZipFile(zipfile: string, filename: string): Promise<Buffer> {
-	const zip1 = await yauzl.open(zipfile);
+export async function readFileContentsFromZipFile(zipfile: string, filename: string): Promise<string> {
+	const zipIter = await yauzl.open(zipfile);
 	try {
-		for await (const entry of zip1) {
+		for await (const entry of zipIter) {
 			if (entry.filename === filename) {
-				const readStream = await entry.openReadStream();
-				return streamToBuffer(readStream);
+				const readable: Readable = await entry.openReadStream();
+				const result = await readToSting(readable);
+				readable.emit('close');
+				return result;
 			}
 		}
 	} finally {
-		await zip1.close();
+		await zipIter.close();
 	}
 
 	throw new Error(`File ${filename} not found in archive ${zipfile}`);
