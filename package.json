@@ -2,7 +2,7 @@
   "name": "@diroussel/wadi",
   "description": "The pipeline util",
   "license": "MIT",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "sideEffects": false,
   "exports": {
@@ -23,8 +23,8 @@
     "lint": "xo",
     "fix": "xo --fix",
     "prepare": "pnpm run build",
-	"release": "np",
-	"test": "pnpm run typecheck && pnpm run test:unit && pnpm run lint",
+    "release": "np",
+    "test": "pnpm run typecheck && pnpm run test:unit && pnpm run lint",
     "package": "./scripts/package.sh",
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
@@ -35,11 +35,11 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-	"@types/yauzl-promise": "^4.0.0",
-	"@aws-sdk/client-s3": "3.379.1",
-	"@aws-sdk/client-ssm": "3.379.1",
-	"@aws-sdk/signature-v4-crt": "3.378.0",
-	"@aws-sdk/types": "3.378.0",
+    "@types/yauzl-promise": "^4.0.0",
+    "@aws-sdk/client-s3": "3.379.1",
+    "@aws-sdk/client-ssm": "3.379.1",
+    "@aws-sdk/signature-v4-crt": "3.378.0",
+    "@aws-sdk/types": "3.378.0",
     "@swc/core": "^1.4.16",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.12",
