@@ -28,17 +28,17 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@types/yauzl-promise": "^4.0.0",
-    "@aws-sdk/client-s3": "3.379.1",
-    "@aws-sdk/client-ssm": "3.379.1",
-    "@aws-sdk/signature-v4-crt": "3.378.0",
-    "@aws-sdk/types": "3.378.0",
     "glob": "^10.3.12",
     "yauzl-promise": "^4.0.0",
     "p-map": "^4.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
+	"@types/yauzl-promise": "^4.0.0",
+	"@aws-sdk/client-s3": "3.379.1",
+	"@aws-sdk/client-ssm": "3.379.1",
+	"@aws-sdk/signature-v4-crt": "3.378.0",
+	"@aws-sdk/types": "3.378.0",
     "@swc/core": "^1.4.16",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.12",
