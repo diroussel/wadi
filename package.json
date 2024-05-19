@@ -2,7 +2,7 @@
   "name": "@diroussel/wadi",
   "description": "The pipeline util",
   "license": "MIT",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "sideEffects": false,
   "exports": {
     "import": "./target/bundle/wadi.mjs",
