@@ -12,6 +12,10 @@ insert_final_newline = true
 indent_style = space
 indent_size = 2
 
+[package.json]
+indent_style = space
+indent_size = 2
+
 # Makefiles always use tabs for indentation
 [Makefile]
 indent_style = tab
