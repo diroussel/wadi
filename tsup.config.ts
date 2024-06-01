@@ -4,7 +4,7 @@ export default defineConfig({
 	clean: true,
 	entry: ['src/wadi.ts'],
 	metafile: true,
-	// NoExternal: [/.*/],
+	noExternal: [/.*/],
 	outDir: 'target/bundle',
 	sourcemap: true,
 	splitting: false,

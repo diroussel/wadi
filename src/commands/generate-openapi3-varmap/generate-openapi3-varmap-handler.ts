@@ -1,24 +1,24 @@
 import pMap from 'p-map';
-import {writeOutputFile} from '../../util/write-output-file';
-import {parseJsonText, readTargetEnvJson} from '../../util/parse-json';
-import type {FunctionGroup, LambdaMappings} from '../../types/wadi-types';
-import {readFileContentsFromZipFile} from '../../util/read-zip';
-import type {GenerateOpenapi3VarMapCliArgs} from './generate-openapi3-varmap-command';
+import type { FunctionGroup, LambdaMappings } from '../../types/wadi-types';
+import { parseJsonText, readTargetEnvJson } from '../../util/parse-json';
+import { readFileContentsFromZipFile } from '../../util/read-zip';
+import { writeOutputFile } from '../../util/write-output-file';
+import type { GenerateOpenapi3VarMapCliArgs } from './generate-openapi3-varmap-command';
 
 // ////////////////////////////////////////////////////////////////////
 // Types
 // ////////////////////////////////////////////////////////////////////
 
 export type Params = {
-	components: TargetComponentData[];
-	targetEnvJsonPath: string;
+  components: TargetComponentData[];
+  targetEnvJsonPath: string;
 };
 
 export type TargetComponentData = {
-	component: string;
-	version: string;
-	localZipFile: string;
-	functionGroup?: FunctionGroup;
+  component: string;
+  version: string;
+  localZipFile: string;
+  functionGroup?: FunctionGroup;
 };
 
 // ////////////////////////////////////////////////////////////////////
@@ -26,35 +26,35 @@ export type TargetComponentData = {
 // ////////////////////////////////////////////////////////////////////
 
 async function readTargetEnv({
-	targetEnvJsonPath,
+  targetEnvJsonPath,
 }: GenerateOpenapi3VarMapCliArgs): Promise<Params> {
-	const jsonObject = await readTargetEnvJson(targetEnvJsonPath);
+  const jsonObject = await readTargetEnvJson(targetEnvJsonPath);
 
-	const components: TargetComponentData[] = Object.entries(
-		jsonObject.components,
-	).flatMap(([component, componentData]) => {
-		const {localZipFile, build_type, version} = componentData;
+  const components: TargetComponentData[] = Object.entries(jsonObject.components).flatMap(
+    ([component, componentData]) => {
+      const { localZipFile, build_type, version } = componentData;
 
-		if (build_type !== 'apigateway') {
-			return [];
-		}
+      if (build_type !== 'apigateway') {
+        return [];
+      }
 
-		if (!localZipFile) {
-			throw new Error(
-				`No localZipFile specified for component '${component}' in ${targetEnvJsonPath}. componentData => ${JSON.stringify(
-					componentData,
-				)}`,
-			);
-		}
+      if (!localZipFile) {
+        throw new Error(
+          `No localZipFile specified for component '${component}' in ${targetEnvJsonPath}. componentData => ${JSON.stringify(
+            componentData,
+          )}`,
+        );
+      }
 
-		if (!version) {
-			throw new Error(`No version specified for component '${component}'`);
-		}
+      if (!version) {
+        throw new Error(`No version specified for component '${component}'`);
+      }
 
-		return [{component, localZipFile, version}];
-	});
+      return [{ component, localZipFile, version }];
+    },
+  );
 
-	return {components, targetEnvJsonPath};
+  return { components, targetEnvJsonPath };
 }
 
 /**
@@ -66,50 +66,46 @@ async function readTargetEnv({
  * @param localZipFile the artifact zip of the component
  */
 async function enrichComponentData({
-	component,
-	version,
-	localZipFile,
+  component,
+  version,
+  localZipFile,
 }: TargetComponentData): Promise<TargetComponentData> {
-	// Open zip file, and read the file
-	const lambdaMappings = await readFileContentsFromZipFile(localZipFile, 'lambda-mappings.json');
+  // Open zip file, and read the file
+  const lambdaMappings = await readFileContentsFromZipFile(localZipFile, 'lambda-mappings.json');
 
-	// Trim build number off version, to avoid terraform updates on minor builds
-	version = version.slice(0, Math.max(0, version.lastIndexOf('.')));
+  // Trim build number off version, to avoid terraform updates on minor builds
+  version = version.slice(0, Math.max(0, version.lastIndexOf('.')));
 
-	// Parse the json and extract the data we need
-	const functionGroup
-    = parseJsonText<LambdaMappings>(lambdaMappings).lambda_function_group;
+  // Parse the json and extract the data we need
+  const functionGroup = parseJsonText<LambdaMappings>(lambdaMappings).lambda_function_group;
 
-	return {
-		component, version, functionGroup, localZipFile,
-	};
+  return {
+    component,
+    version,
+    functionGroup,
+    localZipFile,
+  };
 }
 
-async function buildEnvVarMap(
-	parameters: Params,
-): Promise<Record<string, TargetComponentData>> {
-	const {components} = parameters;
+async function buildEnvVarMap(parameters: Params): Promise<Record<string, TargetComponentData>> {
+  const { components } = parameters;
 
-	const componentFuncs = await pMap(components, enrichComponentData, {
-		concurrency: 4,
-	});
+  const componentFuncs = await pMap(components, enrichComponentData, {
+    concurrency: 4,
+  });
 
-	// Format as string to string map, as terraform handles that better
-	return Object.fromEntries(
-		componentFuncs.map(data => [data.component, data]),
-	);
+  // Format as string to string map, as terraform handles that better
+  return Object.fromEntries(componentFuncs.map((data) => [data.component, data]));
 }
 
-export async function generateTargetEnvHandler(
-	args: GenerateOpenapi3VarMapCliArgs,
-) {
-	const parameters = await readTargetEnv(args);
+export async function generateTargetEnvHandler(args: GenerateOpenapi3VarMapCliArgs) {
+  const parameters = await readTargetEnv(args);
 
-	const varMap = await buildEnvVarMap(parameters);
+  const varMap = await buildEnvVarMap(parameters);
 
-	if (args.jsonOutput) {
-		await writeOutputFile(args.jsonOutput, {apigateway_openapi3_map: varMap});
-	} else {
-		console.log(`apigateway_openapi3_map = ${JSON.stringify(varMap)}`);
-	}
+  if (args.jsonOutput) {
+    await writeOutputFile(args.jsonOutput, { apigateway_openapi3_map: varMap });
+  } else {
+    console.log(`apigateway_openapi3_map = ${JSON.stringify(varMap)}`);
+  }
 }
